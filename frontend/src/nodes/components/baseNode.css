@@ -1,0 +1,73 @@
+.vs-node {
+  position: relative;
+  border: 1px solid #273245;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #e5e7eb;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.vs-node__header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1f2937;
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+}
+
+.vs-node__title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #f3f4f6;
+}
+
+.vs-node__subtitle {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.vs-node__body {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vs-node__field {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.vs-node__fieldLabel {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.vs-node__input,
+.vs-node__select {
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: rgba(2, 6, 23, 0.6);
+  color: #e5e7eb;
+  padding: 0 10px;
+  outline: none;
+}
+
+.vs-node__input:focus,
+.vs-node__select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.vs-node__handle {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #0b1220;
+}
+

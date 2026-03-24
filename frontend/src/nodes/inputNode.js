@@ -1,47 +1,46 @@
-// inputNode.js
-
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
+import { useStore } from '../store';
+import { BaseNode } from './components/BaseNode';
+import { NodeField, NodeInput, NodeSelect } from './components/NodeField';
 
 export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
-  const [inputType, setInputType] = useState(data.inputType || 'Text');
-
-  const handleNameChange = (e) => {
-    setCurrName(e.target.value);
-  };
-
-  const handleTypeChange = (e) => {
-    setInputType(e.target.value);
-  };
+  const updateNodeField = useStore((s) => s.updateNodeField);
+  const name = data?.name ?? 'input';
+  const inputType = data?.inputType ?? 'text';
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <div>
-        <span>Input</span>
-      </div>
-      <div>
-        <label>
-          Name:
-          <input 
-            type="text" 
-            value={currName} 
-            onChange={handleNameChange} 
-          />
-        </label>
-        <label>
-          Type:
-          <select value={inputType} onChange={handleTypeChange}>
-            <option value="Text">Text</option>
-            <option value="File">File</option>
-          </select>
-        </label>
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-value`}
-      />
-    </div>
+    <BaseNode
+      title="Input"
+      subtitle={id}
+      handles={[
+        {
+          id: `${id}-out`,
+          type: 'source',
+          position: Position.Right,
+          top: 44,
+          color: '#60a5fa',
+        },
+      ]}
+    >
+      <NodeField label="Name">
+        <NodeInput
+          value={name}
+          onChange={(e) => updateNodeField(id, 'name', e.target.value)}
+          placeholder="e.g. user_query"
+        />
+      </NodeField>
+
+      <NodeField label="Type">
+        <NodeSelect
+          value={inputType}
+          onChange={(e) => updateNodeField(id, 'inputType', e.target.value)}
+        >
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+          <option value="json">JSON</option>
+        </NodeSelect>
+      </NodeField>
+    </BaseNode>
   );
-}
+};
+

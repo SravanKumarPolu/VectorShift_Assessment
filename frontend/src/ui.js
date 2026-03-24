@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { NumberNode } from './nodes/numberNode';
+import { ConcatNode } from './nodes/concatNode';
+import { IfNode } from './nodes/ifNode';
+import { UppercaseNode } from './nodes/uppercaseNode';
+import { JsonParseNode } from './nodes/jsonParseNode';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  number: NumberNode,
+  concat: ConcatNode,
+  if: IfNode,
+  uppercase: UppercaseNode,
+  jsonParse: JsonParseNode,
 };
 
 const selector = (state) => ({
@@ -80,7 +90,7 @@ export const PipelineUI = () => {
             addNode(newNode);
           }
         },
-        [reactFlowInstance]
+        [reactFlowInstance, addNode, getNodeID]
     );
 
     const onDragOver = useCallback((event) => {
