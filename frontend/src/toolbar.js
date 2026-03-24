@@ -1,22 +1,31 @@
 // toolbar.js
 
+
 import { DraggableNode } from './draggableNode';
+const nodes =[
+    {type:'customInput',label:'Input'},
+    {type:'llm',label:'LLM'},
+    {type:'customOutput',label:'Output'},
+    {type:'text',label:'Text'},
+    {type:'number',label:'Number'},
+    {type:'concat',label:'Concat'},
+    {type:'if',label:'If'},
+    {type:'uppercase',label:'Uppercase'},
+    {type:'jsonParse',label:'JSON Parse'},
+]
 
 export const PipelineToolbar = () => {
 
     return (
-        <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <DraggableNode type='customInput' label='Input' />
-                <DraggableNode type='llm' label='LLM' />
-                <DraggableNode type='customOutput' label='Output' />
-                <DraggableNode type='text' label='Text' />
-                <DraggableNode type='number' label='Number' />
-                <DraggableNode type='concat' label='Concat' />
-                <DraggableNode type='if' label='If' />
-                <DraggableNode type='uppercase' label='Uppercase' />
-                <DraggableNode type='jsonParse' label='JSON Parse' />
+        <div className= 'vs-toolbar'>
+            <div className='vs-toolbar__label'> Drag nodes to canvas </div>
+            <div className='vs-toolbar__grid'>
+                {nodes.map((n)=>(
+                    <DraggableNode key={n.type} type={n.type} label={n.label} />
+                 ))}
+
             </div>
+           
         </div>
     );
 };

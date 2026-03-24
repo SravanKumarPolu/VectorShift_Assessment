@@ -3,8 +3,10 @@
 export const SubmitButton = () => {
 
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <button type="submit">Submit</button>
-        </div>
+        <div className="vs-submit-wrap">
+        <button className="vs-submit-btn" type="submit">
+          Submit Pipeline
+        </button>
+      </div>
     );
 }
