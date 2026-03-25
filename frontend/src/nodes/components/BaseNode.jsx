@@ -2,10 +2,10 @@ import { Handle } from 'reactflow';
 import './baseNode.css';
 
 const positionToStyle = {
-  left: { left: -8 },
-  right: { right: -8 },
-  top: { top: -8 },
-  bottom: { bottom: -8 },
+  left: { left: -9 },
+  right: { right: -9 },
+  top: { top: -9 },
+  bottom: { bottom: -9 },
 };
 
 export function BaseNode({
@@ -30,11 +30,12 @@ export function BaseNode({
           type={h.type}
           position={h.position}
           id={h.id}
-          className="vs-node__handle"
+          className={`vs-node__handle vs-node__handle--${h.type}`}
           style={{
             ...(positionToStyle[h.position] || {}),
             top: typeof h.top === 'number' ? h.top : undefined,
-            background: h.color || undefined,
+            background: h.color || '#38bdf8',
+            borderColor: '#ffffff',
           }}
         />
       ))}

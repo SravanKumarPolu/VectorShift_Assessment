@@ -114,8 +114,11 @@ export const PipelineUI = () => {
                 nodeTypes={nodeTypes}
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
-                fitView
+                connectionLineType='smoothstep'                defaultEdgeOptions={{
+                  animated: true,
+                  style: { stroke: '#3b82f6', strokeWidth: 4 },
+                  markerEnd: { type: 'arrowclosed', color: '#bfdbfe' }
+                }}                fitView
             >
                 <Background color="#334155" gap={gridSize} />
                 <Controls />

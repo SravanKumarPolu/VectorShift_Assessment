@@ -5,9 +5,33 @@
   background: #0f172a;
   color: #e5e7eb;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
+  overflow: visible; /* allow handles to be visible outside node bounds */
 }
 
+.vs-node__handle {
+  position: absolute !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  border-radius: 50% !important;
+  border: 2px solid #ffffff !important;
+  background: #38bdf8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.45) !important;
+  z-index: 999 !important;
+  cursor: crosshair !important;
+}
+
+.vs-node__handle--target {
+  background: #f97316 !important;
+}
+
+.vs-node__handle--source {
+  background: #34d399 !important;
+}
+
+.react-flow__node { z-index: 1; }
+.react-flow__handle { z-index: 999; }
 .vs-node__header {
   padding: 10px 12px;
   border-bottom: 1px solid #1f2937;
@@ -167,7 +191,11 @@
 .react-flow__attribution {
   display: none;
 }
-
+.react-flow__edge-path {
+  stroke: #38bdf8 !important;
+  stroke-width: 4px !important;
+  opacity: 1 !important;
+}
 .vs-submit-wrap {
   display: flex;
   justify-content: center;
