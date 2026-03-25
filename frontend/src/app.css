@@ -1,62 +1,101 @@
 :root {
---app-bg:hsl(222 35% 8%);
---panel: hsl(222 28% 12%);
---panel-2: hsl(222 24% 16%);
---boder: hsl(218 20% 24%);
---muted: hsl(218 16% 65%);
+  --app-bg: hsl(222 35% 8%);
+  --panel: hsl(222 28% 12%);
+  --panel-2: hsl(222 24% 16%);
+  --border: hsl(218 20% 24%);
+  --muted: hsl(218 16% 65%);
 }
 * {
-    box-sizing:border-box;
+  box-sizing: border-box;
 }
 .app-shell {
-    height: 100vh;
-    max-height: 100dvh;
-    padding: 16px;
-    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    display: grid;
-    /* minmax(0,1fr) lets the canvas shrink so the footer row is never clipped */
-    grid-template-rows: auto auto minmax(0, 1fr) auto;
-    gap: 12px;
-    overflow: hidden;
-    box-sizing: border-box;
-    background: radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.15), transparent 35%),
-      var(--app-bg);
-  }
+  height: 100vh;
+  max-height: 100dvh;
+  padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 12px;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.15), transparent 35%), var(--app-bg);
+}
 .app-panel {
-    background: linear-gradient(180deg,var(--panel-2),var(--panel));
-    border-radius:14px;
-    border:1px solid var(--border);
-    box-shadow: 0 10px 24px rgba(0, 0,0,0.28);
-
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 .app-header {
-     padding:  14px 16px;
-     color: #e5e7eb;
-     text-align: center;
+  padding: 14px 16px;
+  color: #e5e7eb;
+  text-align: center;
 }
-.app-tittle{
-    margin: 0;
-    font-size: 22px;
-    font-weight: 700;
-    color:#f3f4f6
+.app-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f3f4f6;
 }
-.app-subtittle{
-    margin:6px 0 0;
-    color:var(--muted,#94a3b8);
-    font-size: 14px;
-
+.app-subtitle {
+  margin: 6px 0 0;
+  color: var(--muted, #94a3b8);
+  font-size: 14px;
 }
 .app-toolbar {
-    padding: 10px 12px;
+  padding: 10px 12px;
+  display: block;
 }
 .app-canvas {
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .app-footer {
-    flex-shrink: 0;
-    padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
-    overflow: visible;
+  flex-shrink: 0;
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .app-toolbar {
+    padding: 8px 10px;
+  }
+
+  .app-canvas {
+    min-height: 0;
+  }
+
+  .vs-canvas {
+    min-height: 0;
+  }
+
+  .vs-toolbar__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .app-shell {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .app-title {
+    font-size: 18px;
+  }
+
+  .app-subtitle {
+    font-size: 13px;
+  }
+
+  .vs-toolbar__grid {
+    grid-template-columns: 1fr;
+  }
 }

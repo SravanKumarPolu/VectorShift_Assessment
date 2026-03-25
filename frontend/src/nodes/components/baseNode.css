@@ -14,7 +14,7 @@
   background: linear-gradient(180deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
 }
 
-.vs-node__tittle {
+.vs-node__title {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -109,7 +109,7 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
-.vs-draggable-node__tittle {
+.vs-draggable-node__title {
   font-size: 13px;
   font-weight: 700;
 }
@@ -140,6 +140,12 @@
   border-bottom: 1px solid #334155 !important;
 }
 
+.react-flow__controls button svg,
+.react-flow__controls button svg * {
+  stroke: #e5e7eb !important;
+  fill: #e5e7eb !important;
+}
+
 .react-flow__minimap {
   border: 1px solid #334155 !important;
   border-radius: 10px !important;
@@ -148,8 +154,6 @@
 
 /* MiniMap SVG defaults can look light; keep mask + canvas dark */
 .react-flow__minimap svg {
-  stroke: #e5e7eb !important;
-  fill: #e5e7eb !important;
   background-color: #0f172a !important;
 }
 .react-flow__controls button path {

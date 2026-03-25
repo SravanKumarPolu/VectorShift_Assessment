@@ -2,6 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  daisyui: {
+    // Keep DaisyUI theme in sync with our Tailwind dark-mode (class strategy).
+    // Default theme is light; dark theme becomes active via Tailwind's `.dark` class.
+    themes: ["light", "dark"],
+    darkTheme: "dark",
+  },
   theme: {
     extend: {
       borderRadius: {
