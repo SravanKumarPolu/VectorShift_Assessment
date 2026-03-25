@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+  /* Default UI: dark theme. shadcn/Tailwind tokens come from `.dark` in this file.
+     Toggle: add/remove `class="dark"` on <html> in public/index.html */
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -57,5 +60,11 @@
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
   }
 }

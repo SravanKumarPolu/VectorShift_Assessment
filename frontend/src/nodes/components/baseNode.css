@@ -14,7 +14,7 @@
   background: linear-gradient(180deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
 }
 
-.vs-node__title {
+.vs-node__tittle {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -66,8 +66,8 @@
 }
 
 .vs-node__handle {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 14px;
   border: 2px solid #0b1220;
 }
 
@@ -86,7 +86,7 @@
 .vs-toolbar__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
 .vs-draggable-node {
@@ -109,7 +109,7 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
-.vs-draggable-node__title {
+.vs-draggable-node__tittle {
   font-size: 13px;
   font-weight: 700;
 }
@@ -121,9 +121,11 @@
 }
 
 .vs-canvas {
+  flex:1;
+  min-height: 0;
   width: 100%;
   height: 100%;
-  min-height: 68vh;
+ 
 }
 
 .react-flow__controls {
@@ -134,7 +136,7 @@
 
 .react-flow__controls button {
   background: #111827 !important;
-  color: #e5e7eb !important;
+  color: #e5e7eb !important; 
   border-bottom: 1px solid #334155 !important;
 }
 
@@ -142,6 +144,20 @@
   border: 1px solid #334155 !important;
   border-radius: 10px !important;
   background: #0f172a !important;
+}
+
+/* MiniMap SVG defaults can look light; keep mask + canvas dark */
+.react-flow__minimap svg {
+  stroke: #e5e7eb !important;
+  fill: #e5e7eb !important;
+  background-color: #0f172a !important;
+}
+.react-flow__controls button path {
+  stroke: #e5e7eb !important;
+  fill: #e5e7eb !important;
+}
+.react-flow__minimap .react-flow__minimap-mask {
+  fill: rgba(15, 23, 42, 0.92) !important;
 }
 
 .react-flow__attribution {
@@ -170,4 +186,8 @@
 .vs-submit-btn:hover {
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+.vs-submit-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.45);
 }

@@ -8,7 +8,7 @@ function App() {
     <div className='app-shell'>
       <header className='app-panel app-header'>
 <h1 className='app-tittle'>VectorShift Pipeline Builder</h1>
-<p className='app-subtitle'>Design and connect your workflow graph.</p>
+<p className='app-subtittle'>Design and connect your workflow graph.</p>
       </header>
       <section className='app-panel app-toolbar' > <PipelineToolbar /></section>
      <main className='app-panel app-canvas'> <PipelineUI /></main>

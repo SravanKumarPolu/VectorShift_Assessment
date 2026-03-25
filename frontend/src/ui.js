@@ -119,7 +119,12 @@ export const PipelineUI = () => {
             >
                 <Background color="#334155" gap={gridSize} />
                 <Controls />
-                <MiniMap />
+                <MiniMap
+                    maskColor="rgba(15, 23, 42, 0.92)"
+                    nodeColor="#334155"
+                    nodeStrokeColor="#64748b"
+                    style={{ backgroundColor: '#0f172a' }}
+                />
             </ReactFlow>
         </div>
         </>

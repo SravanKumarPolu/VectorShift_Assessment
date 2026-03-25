@@ -16,7 +16,7 @@ export const DraggableNode = ({ type, label }) => {
       
         draggable
       >
-          <span className=" vs-draggable-node__tittle">{label}</span>
+          <span className="vs-draggable-node__tittle">{label}</span>
           <span className="vs-draggable-node__hint">Drag</span>
       </div>
     );
